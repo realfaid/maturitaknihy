@@ -1,6 +1,12 @@
 <h1><?php echo lang('deactivate_heading');?></h1>
 <p><?php echo sprintf(lang('deactivate_subheading'), $user->{$identity}); ?></p>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<style>
+    body {​​​​​​​
+      background-color: #FF5733;  
+     text-align: center;
+    }​​​​​​​
+    </style>
 <?php echo form_open("auth/deactivate/".$user->id);?>
 
   <p>

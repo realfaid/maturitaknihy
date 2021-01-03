@@ -18,12 +18,26 @@
     <h1 class="navbar-brand">Maturitní četba</h1>
         <div class="container">
                 <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url("dokumentace/dokumentace.pdf")?>">Dokumentace</a>
+                        </li>
+
+                    </ul>
                     <ul class="navbar-nav ml-auto">
                         <?php foreach($polozky as $p): ?>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php echo base_url("stranka/".$p->idmenu)?>"><?= $p->categorie ?><span class="sr-only">(current)</span></a>
                         </li>
                         <?php endforeach; ?>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url("auth/login")?>">Login</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url("auth/create_user")?>">Registrace</a>
+                        </li>
                     </ul>
                 </div>
         </div>

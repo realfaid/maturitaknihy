@@ -34,11 +34,21 @@ class Cetba_controller extends CI_Controller
     public function prebaly($id)
     {
         $data['prebaly'] = $this->cetba_model->get_prebal($id);
+      
+    $data['polozky'] = $this->cetba_model->get_menu_polozky();
+
+        $this->load->view('layout/hlava', $data);
+        $this->load->view('content/prebal');
+        $this->load->view('layout/pata');
+    }
+    public function formular()
+    {
+
         $data['polozky'] = $this->cetba_model->get_menu_polozky();
   
 
         $this->load->view('layout/hlava', $data);
-        $this->load->view('content/prebal');
+        $this->load->view('content/formular');
         $this->load->view('layout/pata');
     }
 

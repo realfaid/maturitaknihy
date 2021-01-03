@@ -55,5 +55,6 @@ $route['menu'] = 'Cetba_controller/menu/';
 $route['stranka/(:num)'] = 'Cetba_controller/stranky/$1';
 $route['prebal/(:num)'] = 'Cetba_controller/prebaly/$1';
 $route['obdobi/(:num)'] = 'Cetba_controller/obdobi/$1';
+$route['formular'] = 'Cetba_controller/formular';
 $route['default_controller'] = 'cetba_controller/menu';
 $route['404_override'] = '';

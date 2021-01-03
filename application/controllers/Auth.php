@@ -64,6 +64,7 @@ class Auth extends CI_Controller
 	 */
 	public function login()
 	{
+		
 		$this->data['title'] = $this->lang->line('login_heading');
 
 		// validate form input
@@ -81,7 +82,7 @@ class Auth extends CI_Controller
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('/', 'refresh');
+				redirect('formular', 'refresh');
 			}
 			else
 			{
@@ -507,7 +508,7 @@ class Auth extends CI_Controller
 			// check to see if we are creating the user
 			// redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("auth", 'refresh');
+			redirect("auth/login", 'refresh');
 		}
 		else
 		{
