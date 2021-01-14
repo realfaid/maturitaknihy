@@ -15,10 +15,15 @@
 
  <body style="padding-top: 100; background-color: whitesmoke; ">    
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <h1 class="navbar-brand">Maturitní četba</h1>
+ <a href="<?php echo base_url()?>"> <h1 class="navbar-brand"> Maturitní četba</h1></a>
         <div class="container">
                 <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
+
+                <?php if($this->session->userdata('logged_in')){ ?>
+               
+
+
+                    <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="<?php echo base_url("dokumentace/dokumentace.pdf")?>">Dokumentace</a>
                         </li>
@@ -33,12 +38,41 @@
                     </ul>
                     <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url("auth/login")?>">Login</a>
-                        </li>
+                        <a class="nav-link" href="<?php echo base_url("logout")?>">Odhlásit se</a>
+                        </li> 
                         <li class="nav-item">
-                        <a class="nav-link" href="<?php echo base_url("auth/create_user")?>">Registrace</a>
+                        <a class="nav-link" href="<?php echo base_url("formular")?>">Přidání knihy</a>
                         </li>
                     </ul>
+                        <?php }else{ ?>
+
+                            <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url("dokumentace/dokumentace.pdf")?>">Dokumentace</a>
+                        </li>
+
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <?php foreach($polozky as $po):	?>
+
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo base_url("stranka/".$po->idmenu)?>"><?= $po->categorie ?><span class="sr-only">(current)</span></a>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url("auth/login")?>">Přihlásit se</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="<?php echo base_url("auth/create_user")?>">Registrovat se</a>
+                        </li>
+                    </ul>
+                    
+                    
+                    <?php }?>
+                    
                 </div>
         </div>
     </nav> 

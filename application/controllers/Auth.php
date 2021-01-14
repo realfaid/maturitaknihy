@@ -12,6 +12,7 @@ class Auth extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
@@ -19,6 +20,7 @@ class Auth extends CI_Controller
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
 		$this->lang->load('auth');
+
 	}
 
 	/**
@@ -82,7 +84,7 @@ class Auth extends CI_Controller
 				//if the login is successful
 				//redirect them back to the home page
 				$this->session->set_flashdata('message', $this->ion_auth->messages());
-				redirect('formular', 'refresh');
+				redirect(base_url(), 'refresh' );
 			}
 			else
 			{
@@ -126,7 +128,7 @@ class Auth extends CI_Controller
 		$this->ion_auth->logout();
 
 		// redirect them to the login page
-		redirect('auth/login', 'refresh');
+		redirect(base_url(), 'refresh');
 	}
 
 	/**
@@ -466,7 +468,7 @@ class Auth extends CI_Controller
 
 		if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
 		{
-			redirect('auth', 'refresh');
+			redirect(base_url(), 'refresh');
 		}
 
 		$tables = $this->config->item('tables', 'ion_auth');
@@ -508,7 +510,7 @@ class Auth extends CI_Controller
 			// check to see if we are creating the user
 			// redirect them back to the admin page
 			$this->session->set_flashdata('message', $this->ion_auth->messages());
-			redirect("auth/login", 'refresh');
+			redirect("auth", 'refresh');
 		}
 		else
 		{
@@ -891,4 +893,6 @@ class Auth extends CI_Controller
 		}
 	}
 
+
+	
 }
