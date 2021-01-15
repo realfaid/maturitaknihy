@@ -12,11 +12,11 @@ class Auth extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-
+		$data['polozky'] = $this->Cetba_model->get_menu_polozky();    
 		$this->load->database();
 		$this->load->library(['ion_auth', 'form_validation']);
 		$this->load->helper(['url', 'language']);
-
+		$this->load->view('layout/hlava', $data);
 		$this->form_validation->set_error_delimiters($this->config->item('error_start_delimiter', 'ion_auth'), $this->config->item('error_end_delimiter', 'ion_auth'));
 
 		$this->lang->load('auth');

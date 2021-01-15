@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
  <a href="<?php echo base_url()?>"> <h1 class="navbar-brand"> Maturitní četba</h1></a>
         <div class="container">
-                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <div class="collapse navbar-collapse">
 
                 <?php if($this->session->userdata('logged_in')){ ?>
                
